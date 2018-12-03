@@ -1,2 +1,2 @@
-$hostname= $HOSTNAME;
+hostname= $HOSTNAME;
 echo $hostname;
