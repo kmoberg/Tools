@@ -17,7 +17,7 @@ Scripts for CentOS 7. These may work on other RHEL distros, but have not been te
 This script will install the prerequisites for CentOS to join a Windows Active Directory Domain. 
 
 ```
-Give the example
+bash -c "$(curl -s https://raw.githubusercontent.com/kmoberg/UsefulSysadminScripts/master/Scripts/CentOS7/centos-activedirectory-integration.sh)"; 
 ```
 
 
