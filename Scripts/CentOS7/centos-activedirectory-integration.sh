@@ -4,8 +4,8 @@ read accept
 if [[ $accept == "yes" ]] || [[ $accept == "y" ]]
 then
 
-	host-name=$HOSTNAME;
-	check-name="localhost";
+	host-name = $HOSTNAME;
+	check-name = "localhost";
 
 	if [[ $host-name == $check-name ]]
 	then
@@ -33,5 +33,7 @@ then
 	echo "#Active Directory Integration" >> /etc/ssh/sshd_config
 	echo "AllowGroups Linux\ Admin linux-user" >> /etc/ssh/sshd_config
 	echo "%Linux\ Admin 	ALL=(ALL)	ALL" > /etc/sudoers.d/"Linux Admin"
+
+
 
 fi
