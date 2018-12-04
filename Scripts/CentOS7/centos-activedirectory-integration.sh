@@ -31,8 +31,8 @@ then
 	realm join --user=$domainUser $domainName
 
 	sed -i 's/services = nss, pam/services = nss, pam, ssh/g' /etc/sssd/sssd.conf
-	sed -i 's/use_fully_qualitied_names = True/use_fully_qualitied_names = false/g' /etc/sssd/sssd.conf
-	sed -i 's/%u%d/%u/g' /etc/sssd/sssd.conf
+	sed -i 's/use_fully_qualified_names = True/use_fully_qualified_names = false/g' /etc/sssd/sssd.conf
+	sed -i 's/%u@%d/%u/g' /etc/sssd/sssd.conf
 	echo "#Active Directory Integration" >> /etc/ssh/sshd_config
 	echo "AllowGroups Linux\ Admin linux-user" >> /etc/ssh/sshd_config
 	echo "%Linux\ Admin 	ALL=(ALL)	ALL" > /etc/sudoers.d/"Linux Admin"
