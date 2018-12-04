@@ -10,9 +10,9 @@ then
 	if [[ $currentHostname == $checkName ]]
 	then
 	        echo "Hostname cannot be localhost. Please enter a new hostname:"
-	        read currentHostname;
+	        read newHostname;
 
-	        hostnamectl set-hostname $currentHostname;
+	        hostnamectl set-hostname $newHostname;
 	fi
 
 	yum install sssd realmd oddjob oddjob-mkhomedir adcli samba-common samba-common-tools krb5-workstation openldap-clients policycoreutils-python -y
