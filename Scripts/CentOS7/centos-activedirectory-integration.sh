@@ -16,7 +16,7 @@ then
 	        hostnamectl set-hostname $newHostname;
 	fi
 
-	yum install sssd realmd oddjob oddjob-mkhomedir adcli samba-common samba-common-tools krb5-workstation openldap-clients policycoreutils-python -y
+	yum install sssd realmd oddjob oddjob-mkhomedir adcli samba-common samba-common-tools krb5-workstation openldap-clients policycoreutils-python vim -y
 	realm list
 
 	echo "Enter domain admin credentials"
