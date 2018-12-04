@@ -1,18 +1,21 @@
 echo "This script will join the Linux machine to an existing Active Directory. The script will make modifications to sssd.conf and sshd.conf, as well as add the group \"Linux Admin\" to sudoers. If this is OK, please type yes:"
 read accept
 
+
+
+
 if [[ $accept == "yes" ]] || [[ $accept == "y" ]]
 then
-
-	host-name = $HOSTNAME;
-	check-name = "localhost";
-
-	if [[ $host-name == $check-name ]]
+	
+	currentHostname = $HOSTNAME
+	checkName = "localhost"
+	
+	if [[ $currentHostname == $checkName ]]
 	then
 	        echo "Hostname cannot be localhost. Please enter a new hostname:"
-	        read host-name;
+	        read currentHostname;
 
-	        hostnamectl set-hostname $host-name;
+	        hostnamectl set-hostname $currentHostname;
 	fi
 
 	yum install sssd realmd oddjob oddjob-mkhomedir adcli samba-common samba-common-tools krb5-workstation openldap-clients policycoreutils-python -y
