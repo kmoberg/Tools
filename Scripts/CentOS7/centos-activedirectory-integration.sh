@@ -1,14 +1,11 @@
 echo "This script will join the Linux machine to an existing Active Directory. The script will make modifications to sssd.conf and sshd.conf, as well as add the group \"Linux Admin\" to sudoers. If this is OK, please type yes:"
 read accept
 
-
-
-
 if [[ $accept == "yes" ]] || [[ $accept == "y" ]]
 then
 	
-	currentHostname = $HOSTNAME
-	checkName = "localhost"
+	currentHostname=$HOSTNAME
+	checkName="localhost"
 	
 	if [[ $currentHostname == $checkName ]]
 	then
