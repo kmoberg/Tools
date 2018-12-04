@@ -37,7 +37,8 @@ then
 	echo "%Linux\ Admin 	ALL=(ALL)	ALL" > /etc/sudoers.d/"Linux Admin"
 
 	systemctl restart sssd
-	systemctl restard sshd
+	systemctl restart sshd
 
-
+	realm list
+	echo "The system was sucessfully joined to the domain $domainName as $newHostname. "
 fi
