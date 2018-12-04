@@ -1,5 +1,5 @@
 navn=$HOSTNAME;
-navn2="ldap-test";
+navn2="localhost";
 
 if [[ $navn == $navn2 ]]
 then
@@ -21,3 +21,7 @@ read domainName
 echo "realm join --user=$domainUser $domainName"
 realm join --user=$domainUser $domainName
 
+sed -i 's/services = nss, pam/services = nss, pam, ssh/g' /etc/sssd/sssd.conf.bak
+echo "#Active Directory Integration" >> /etc/ssh/sshd_config
+echo "AllowGroups Linux\ Admin linux-user" >> /etc/ssh/sshd_config
+echo "%Linux\ Admin 	ALL=(ALL)	ALL" > /etc/sudoers.d/"Linux Admin"
