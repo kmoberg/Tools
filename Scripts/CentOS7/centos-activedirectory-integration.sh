@@ -6,8 +6,9 @@ then
 	
 	currentHostname=$HOSTNAME
 	checkName="localhost"
-	
-	if [[ $currentHostname == $checkName ]]
+	secondCheckName="localhost.localdomain"
+
+	if [[ $currentHostname == $checkName ]] || [[ $currentHostname == $secondCheckName ]]
 	then
 	        echo "Hostname cannot be localhost. Please enter a new hostname:"
 	        read newHostname;
@@ -30,10 +31,13 @@ then
 	sed -i 's/services = nss, pam/services = nss, pam, ssh/g' /etc/sssd/sssd.conf
 	sed -i 's/use_fully_qualified_names = True/use_fully_qualified_names = false/g' /etc/sssd/sssd.conf
 	sed -i 's/%u@%d/%u/g' /etc/sssd/sssd.conf
+	echo " " >> /etc/ssh/sshd_config
 	echo "#Active Directory Integration" >> /etc/ssh/sshd_config
 	echo "AllowGroups Linux\ Admin linux-user" >> /etc/ssh/sshd_config
 	echo "%Linux\ Admin 	ALL=(ALL)	ALL" > /etc/sudoers.d/"Linux Admin"
 
+	systemctl restart sssd
+	systemctl restard sshd
 
 
 fi
