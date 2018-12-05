@@ -20,16 +20,48 @@ tput setaf 2; echo "
 
 read initialSelection
 
-if [[ initialSelection == 1 ]]
+if [ $initialSelection == 1 ]
 then 
-	echo "Intial CentOS Setup"
+	tput setaf 3; echo "
+##########################################
+# This command will set hostname and     #
+# install useful tools. Refer to GitHub  #
+# for more information. Press CTRL+C to  #
+# cancel. This script will start soon.	 #
+##########################################"; tput sgr0
 
-elif [[ initialSelection == 2 ]]
+		sleep 10
+
+		bash -c "$(curl -s https://raw.githubusercontent.com/kmoberg/UsefulSysadminScripts/master/Scripts/CentOS7/first-configuration.sh)"; 
+
+
+elif [ $initialSelection == 2 ]
 	then
-		echo "Join CentOS to Active Directory"
+
+	tput setaf 3; echo "
+##########################################
+# This command will set connect CentOS   #
+# to a Windows Active Directory domain.  #
+# It will download the required tools,   #
+# verify that a correct hostname is set  #
+# before joining the domain. After the   #
+# server is connected, it will modify    #
+# SSSD and SSHD to only allow AD access  #
+# over SSH. Refer to GitHub for more     #
+# information.                           #
+#                                        #
+# This script will automatically start   #
+# in 10 seconds. Press CTRL+C to stop!   #
+##########################################"; tput sgr0
+
+		sleep 10
+
+		bash -c "$(curl -s https://raw.githubusercontent.com/kmoberg/UsefulSysadminScripts/master/Scripts/CentOS7/centos-activedirectory-integration.sh)"; 
+
+
+
 
 else
-	then
 		echo "No selection was made. You can try again by reissuing the initial command"
 	fi
 
