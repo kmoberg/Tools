@@ -1,6 +1,13 @@
-yum update
+if [ "$EUID" -ne 0 ]
+	then echo "This script must be run as root."
+	exit
+fi
 
-yum install httpd
+
+
+yum update -y
+
+yum install httpd -y
 systemctl start httpd
 systemctl enable httpd
 firewall-cmd --zone=public --permanent --add-service=http
