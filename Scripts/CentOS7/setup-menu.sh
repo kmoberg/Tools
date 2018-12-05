@@ -23,15 +23,13 @@ read initialSelection
 if [[ initialSelection == 1 ]]
 then 
 	echo "Intial CentOS Setup"
-fi
 
 elif [[ initialSelection == 2 ]]
 	then
 		echo "Join CentOS to Active Directory"
-	fi
 
 else
 	then
 		echo "No selection was made. You can try again by reissuing the initial command"
 	fi
-	
+
