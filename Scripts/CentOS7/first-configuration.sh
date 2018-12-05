@@ -2,7 +2,7 @@ echo "Enter a new hostname"
 read newHostname
 
 hostnamectl set-hostname $newHostname
-printf "MARKANT NORGE AS\n Linux: $newHostname \n IP: \4 \n\n \S \n Kernel \r on an \m \n\n NOTICE! ALL UNAUTHORIZED ACCESS PROHIBITED!\n ALL ACTIVITY IS LOGGED AND ACTIVELY MONITORED.\n UNAUTHORIZED ACCESS WILL BE PROSECUTED.\n" > /etc/issue
+echo $'MARKANT NORGE AS\n Linux: $newHostname \n IP: \\4 \n\n \S \n Kernel \\r on an \m \n\n NOTICE! ALL UNAUTHORIZED ACCESS PROHIBITED!\n ALL ACTIVITY IS LOGGED AND ACTIVELY MONITORED.\n UNAUTHORIZED ACCESS WILL BE PROSECUTED.\n' > /etc/issue
 
 yum install wget cockpit zip bind-utils unzip firewalld git lsof vim nano -y
 systemctl restart firewalld
