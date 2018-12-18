@@ -11,6 +11,12 @@ Run the command on the operating system in question to execute the ocmmand.
 ## CentOS7
 Scripts for CentOS 7. These may work on other RHEL distros, but have not been tested.
 
+### Setup Menu
+This script functions as a menu an a quick way to navigate between the other scripts with only a single command. 
+```
+bash -c "$(curl -s https://raw.githubusercontent.com/kmoberg/UsefulSysadminScripts/master/Scripts/CentOS7/setup-menu.sh)"; 
+```
+
 
 ### First Setup
 The first very basic setup of CentOS7, this script sets a new hostname, installs some useful tools: wget, vim, nano and cockpit among others, enables cockpit and creates a firewall exception, then adds yum update to crontab to run once a week. Additionally, the script adds some useful information to the /etc/issue file - the logon screen for users who login to the console. This is only shown on the console, and not via SSH or any remote-access. For sensitive information or some production environments this should be removed for security reasons. 
